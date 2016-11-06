@@ -17,3 +17,6 @@ after time is set
 hwclock -w
 ```
 ## Change timezone
+```
+sudo dpkg-reconfigure tzdata
+```

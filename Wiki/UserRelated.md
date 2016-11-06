@@ -33,3 +33,8 @@ compgen -g
 ```bash
 usermod -g <groupname> username
 ```
+
+## Remove user
+```bash
+userdel <username>
+```
