@@ -1,0 +1,52 @@
+## Bash get external IP address:
+curl -s http://whatismijnip.nl |cut -d " " -f 5
+
+# Network / Security
+## Open Port
+```
+firewall-cmd --permanent --add-port=80/tcp
+firewall-cmd --permanent --add-port=443/tcp
+firewall-cmd --permanent --add-port=8080/tcp
+firewall-cmd --permanent --add-port=8443/tcp
+firewall-cmd --reload
+
+firewall-cmd --permanent --remove-port=8080/tcp
+firewall-cmd --permanent --remove-port=80/tcp
+firewall-cmd --permanent --remove-port=443/tcp
+
+firewall-cmd --permanent --remove-port=8443/tcp
+firewall-cmd --permanent --remove-port=8080/tcp
+
+firewall-cmd --list-all
+
+firewall-cmd --add-port=8112/tcp
+firewall-cmd --add-port=6010/tcp
+firewall-cmd --add-port=6011/tcp
+```
+
+## Port forwarding
+[Source](https://www.linode.com/docs/security/firewalls/introduction-to-firewalld-on-centos)
+```bash
+sudo firewall-cmd --zone=public --permanent --add-forward-port=port=80:proto=tcp:toport=8080
+sudo firewall-cmd --zone=public --permanent --add-forward-port=port=443:proto=tcp:toport=8443
+sudo firewall-cmd --list-all
+sudo firewall-cmd --reload
+
+sudo firewall-cmd --remove-forward-port=port=8080:proto=tcp:toport=80:toaddr=127.0.0.1
+```
+
+## Monitor port
+```
+nc -l -p 80
+```
+
+## Minimal HTTP server
+```
+python -m SimpleHTTPServer <port>
+```
+
+## Traceroute
+```
+yum install traceroute
+```
+
