@@ -1,9 +1,8 @@
-### change system locale
+## change system locale
 ```
 localectl set-locale LANG=en_US.utf8
 ```
 
-# Date & Time
 ## SET DATE
 ```
 date -s '2015-12-21 23:26:00'

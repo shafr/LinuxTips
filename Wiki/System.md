@@ -1,4 +1,3 @@
-# systemctl
 ## Show systemctl as tree
 ```
 systemd-cgls

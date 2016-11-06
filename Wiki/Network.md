@@ -1,7 +1,6 @@
 ## Bash get external IP address:
 curl -s http://whatismijnip.nl |cut -d " " -f 5
 
-# Network / Security
 ## Open Port
 ```
 firewall-cmd --permanent --add-port=80/tcp

@@ -1,4 +1,3 @@
-# Storage related things
 ## Add Dropbox backup
 ```
 git clone https://github.com/andreafabrizi/Dropbox-Uploader/

@@ -1,5 +1,3 @@
-# User related
-
 ## create new user
 ```bash
 sudo useradd -d /home/testuser -m testuser
@@ -27,7 +25,11 @@ sudo chsh <username>
 ```
 
 ## list groups
+```bash
 compgen -g
+```
 
 ## Add user to group
+```bash
 usermod -g <groupname> username
+```

@@ -1,4 +1,3 @@
-
 ## Torrents
 ### DELUGE:
 ```bash
@@ -14,8 +13,7 @@ yum install epel-release
 yum install transmission
 ```
 
-## Streaming / Encoding
-### Wowza
+## Wowza (Streaming / Encoding)
 ```bash
 wget http://www.wowza.com/downloads/WowzaStreamingEngine-4-0-3/WowzaStreamingEngine-4.0.3.tar.bin
 ---
@@ -40,7 +38,7 @@ youtube-dl --extract-audio --audio-format mp3 <url>
 ffmpeg -i LostInTranslation.mkv -vcodec copy -acodec copy LostInTranslation.mp4
 ```
 
-# Centos if Vmware tools are not installed properly:
+## Centos if Vmware tools are not installed properly:
 ```
 yum install kernel-devel gcc
 yum -y install kernel-headers-$(uname -r)
