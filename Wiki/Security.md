@@ -18,4 +18,10 @@ sudo firewall-cmd --zone=public --permanent --add-forward-port=port=16162:proto=
 ssh user@server -p port
 
 ## ssh login via KEY
-TODO
+```
+ssh-keygen -t rsa
+ssh-copy-id user@123.45.56.78
+```
+
+[How To Set Up SSH Keys](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2)
+[Ubuntu 16.04 ssh - agent refused](http://askubuntu.com/questions/762541/ubuntu-16-04-ssh-sign-and-send-pubkey-signing-failed-agent-refused-operation)
