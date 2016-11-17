@@ -5,6 +5,16 @@
 ```bash
 cp /boot/config-$(uname -r) .config
 ```
+* Apply patch
+Check that patch file works:
+```bash
+patch -p1 -i <patch> --dry-run
+```
+Extract patch to current kernel folder
+```bash
+patch -p1 -i <patch>
+```
+
 * Run ui editor
 ```bash
 make xconfig
