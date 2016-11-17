@@ -32,6 +32,11 @@ make gconfig (has good descriptions)
 time fakeroot make-kpkg -j N --initrd --append-to-version=my-very-own-kernel kernel-image kernel-headers
 ```
 
+* Installation
+```bash
+dpkg -i <deb files>
+```
+
 ## Post install
 
 * Update Grub
