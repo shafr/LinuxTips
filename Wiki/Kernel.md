@@ -1,4 +1,5 @@
 # Building Kernel
+## Preparation
 Note that you would need lots of space for that - like 2gb for build tools and 20GB for kernels
 
 * Pull latest .tar.xz stable kernel file from `https://www.kernel.org/`
@@ -7,23 +8,33 @@ Note that you would need lots of space for that - like 2gb for build tools and 2
 ```bash
 cp /boot/config-$(uname -r) .config
 ```
-* Apply patch
-Check that patch file works:
+
+## Using patch
+* Check that patch file works:
 ```bash
 patch -p1 -i <patch> --dry-run
 ```
-Extract patch to current kernel folder
+* Extract patch to current kernel folder
 ```bash
 patch -p1 -i <patch>
 ```
+## Configuration
 
 * Run ui editor
 ```bash
 make xconfig (allows search)
 make gconfig (has good descriptions)
 ```
+## Building itself
+
 * Build kernel (-j number of your kernels+1)
 ```bash
-fakeroot make-kpkg -j N --initrd --append-to-version=my-very-own-kernel kernel-image kernel-headers
-make all -j 9
+time fakeroot make-kpkg -j N --initrd --append-to-version=my-very-own-kernel kernel-image kernel-headers
+```
+
+## Post install
+
+* Update Grub
+```bash
+update-grub
 ```
