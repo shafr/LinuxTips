@@ -38,3 +38,6 @@ usermod -g <groupname> username
 ```bash
 userdel <username>
 ```
+
+## LOGIN as other user:   
+sudo -i -u user    
