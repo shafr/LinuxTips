@@ -25,3 +25,19 @@ listen_addresses = '*'
 host    all             all              0.0.0.0/0                       md5
 host    all             all              ::/0                            md5
 ```
+
+
+# SQL
+
+## Create User
+```
+CREATE USER xxx PASSWORD 'yyy';
+```
+## Allow only your user to connect to db
+```
+REVOKE CONNECT ON DATABASE your_database FROM PUBLIC;
+
+GRANT CONNECT
+ON DATABASE database_name 
+TO user_name;
+```
