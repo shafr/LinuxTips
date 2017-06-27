@@ -3,23 +3,14 @@ curl -s http://whatismijnip.nl |cut -d " " -f 5
 
 ## Open Port
 ```
-firewall-cmd --permanent --add-port=80/tcp
-firewall-cmd --permanent --add-port=443/tcp
-firewall-cmd --permanent --add-port=8080/tcp
-firewall-cmd --permanent --add-port=8443/tcp
-firewall-cmd --reload
-
-firewall-cmd --permanent --remove-port=8080/tcp
-firewall-cmd --permanent --remove-port=80/tcp
-firewall-cmd --permanent --remove-port=443/tcp
-
-firewall-cmd --permanent --remove-port=8443/tcp
-firewall-cmd --permanent --remove-port=8080/tcp
-
 firewall-cmd --list-all
 
-firewall-cmd --add-port=8112/tcp
-firewall-cmd --add-port=6010/tcp
+firewall-cmd --permanent --add-port=80/tcp
+firewall-cmd --permanent --remove-port=8080/tcp
+firewall-cmd --permanent --remove-port=8443/tcp
+
+firewall-cmd --reload
+
 firewall-cmd --add-port=6011/tcp
 ```
 
@@ -49,3 +40,5 @@ python -m SimpleHTTPServer <port>
 yum install traceroute
 ```
 
+## See what ports are used by specific ports (works in Docker as well)
+ss -l -p -n | grep <PID>
