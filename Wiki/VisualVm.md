@@ -21,13 +21,13 @@ xclock& , xeyes&
 yum -y install libXtst
 ```
 
-## How to debug docker using visualvm
+## How to use VisualVm with Openshift or Docker
 
 * download and `mvn package` the project from [ejstatd](https://github.com/anthony-o/ejstatd)
 * expose ports `1111 1112 1113` in your docker container
 * copy `tools.jar`. If it's missing from (ojdkwindows)[https://github.com/ojdkbuild/ojdkbuild]
 * run app:
 ```
-java -cp "ejstatd-1.0.0.jar:$JAVA_HOME/lib/tools.jar" com.github.anthony_o.ejstatd.EJstatd -pr1111 -ph1112 -pv1113
+java -Djava.rmi.server.hostname=localhost -cp "ejstatd-1.0.0.jar:tools1.8.jar" com.github.anthony_o.ejstatd.EJstatd -pr2222 -ph2223 -pv2224
 ```
 Then add new jstatd connection on `local machine port 1111`
