@@ -2,7 +2,7 @@
 Start server
 ```bash
 wget https://raw.githubusercontent.com/stackp/Droopy/master/droopy
-python droppy -p 8090
+python droopy --dl 8090
 ```
 Using OC tools to forward port
 ```bash
