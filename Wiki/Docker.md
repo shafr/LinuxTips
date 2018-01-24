@@ -1,3 +1,9 @@
+### Docker start Stopped container:
+docker start -ia <container name>
+
+### Override entrypoint
+docker run --entrypoint <entrypoint>
+
 # Machine Hosting Docker:
 ## Install docker on ubuntu 16.04 (if you have issues that it hangs):
 ```bash
@@ -65,7 +71,12 @@ docker rmi $(docker images -q)
 
 # removed untagged images
 docker rmi $(docker images | grep "^<none>" | awk "{print $3}") 
+
+#Remove old docker images
+docker images -q -a | xargs --no-run-if-empty docker rmi
 ```
+
+
 
 # Docker container:
 ## Upload file to Some server

@@ -14,6 +14,9 @@ re-connect ssh and test:
 xclock& , xeyes&
 ```
 
+[More details](https://rtfmp.com/2015/10/08/how-configure-x11-forwarding-in-rhel7-centos7/)
+
+
 ## How to fix issue libxtst
 `if "libXtst.so.6: cannot open shared object file: No such file or directory":`
 
