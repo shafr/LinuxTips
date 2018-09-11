@@ -5,7 +5,9 @@ tail -f /var/log/secure
 ```bash
 mcedit /etc/ssh/sshd_config
 PermitRootLogin no
-/etc/init.d/sshd restart
+PubkeyAuthentication yes
+PaaswordAuthenication no
+systemctl restart sshd
 ```
 
 ## FAIL2Ban for SSH
