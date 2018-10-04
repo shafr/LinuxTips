@@ -3,17 +3,23 @@
 localectl set-locale LANG=en_US.utf8
 ```
 
-## SET DATE
-```
-date -s '2015-12-21 23:26:00'
+## Set Date & Time
+Sometimes you don't have access to NTP server (like corporate network) so you have to sync manually. 
+You can get values from local linux machine:
+```bash
+date +%Y%m%d%T
+date +%T 
+
 ```
 ## Update time/system clock
 ```bash
+DATE:
+date +%Y%m%d%T -s "20151214"
+
 TIME:
 date +%T -s "10:13:13"
-DATE:
-date +%Y%m%d -s "20151214"
-after time is set
+
+After time is set (sync up with internal HW time)
 hwclock -w
 ```
 ## Change timezone

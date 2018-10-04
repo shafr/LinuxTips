@@ -35,3 +35,9 @@ OnCalendar=*-*-* 09:00:00
 [Install]
 WantedBy=multi-user.target
 ```
+
+Note that `[Timer]` section can have different useful units:
+```bash
+OnBootSec=15min # start timer only 15 minutes after boot
+OnUnitActiveSec=1min # Execute every minute
+```

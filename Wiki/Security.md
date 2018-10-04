@@ -8,6 +8,16 @@ PermitRootLogin no
 PubkeyAuthentication yes
 PaaswordAuthenication no
 systemctl restart sshd
+
+
+
+REGEX_FILE="/etc/ssh/sshd_config"
+REGEX=".*PermitRootLogin.*"
+REGEX_RESULT="PermitRootLogin no"
+sed -i "s;${REGEX};${REGEX_RESULT};g" ${REGEX_FILE}
+
+
+
 ```
 
 ## FAIL2Ban for SSH

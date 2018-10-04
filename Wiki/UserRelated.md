@@ -39,5 +39,17 @@ usermod -g <groupname> username
 userdel <username>
 ```
 
+## Rename user
+```bash
+sudo usermod -l newUsername oldUsername
+sudo usermod -d /home/newHomeDir -m newUsername
+
+```
+[StackOverflow][rename-user]
+
+
 ## LOGIN as other user:   
 sudo -i -u user    
+
+
+[rename-user]: https://askubuntu.com/questions/34074/how-do-i-change-my-username
