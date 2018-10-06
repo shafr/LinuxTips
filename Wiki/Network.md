@@ -42,3 +42,9 @@ yum install traceroute
 
 ## See what ports are used by specific ports (works in Docker as well)
 ss -l -p -n | grep <PID>
+  
+## netstat: command not found
+```bash
+apt-get install net-tools
+```
+
