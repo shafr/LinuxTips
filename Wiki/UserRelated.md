@@ -29,6 +29,11 @@ sudo chsh <username>
 compgen -g
 ```
 
+## Rename group:
+```bash
+groupmod --new-name NEW_GROUP_NAME OLD_GROUP_NAME
+```
+
 ## Add user to group
 ```bash
 usermod -g <groupname> username
