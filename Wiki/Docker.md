@@ -77,6 +77,10 @@ docker images -q -a | xargs --no-run-if-empty docker rmi
 ```
 
 
+## Find IP of Container (Windows)
+```bash
+docker inspect --format '{{ .NetworkSettings.Networks.nat.IPAddress }}' <container ID>
+```
 
 # Docker container:
 ## Upload file to Some server
