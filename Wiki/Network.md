@@ -48,3 +48,7 @@ ss -l -p -n | grep <PID>
 apt-get install net-tools
 ```
 
+## Connect OpenVPN in background:
+```bash
+(sudo ./openvpn --config vpnConfig.ovpn) &
+```
