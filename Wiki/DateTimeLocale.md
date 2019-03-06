@@ -26,3 +26,9 @@ hwclock -w
 ```
 sudo dpkg-reconfigure tzdata
 ```
+
+## Update using NTP
+```
+sudo apt-get install ntpdate
+sudo ntpdate 1.ro.pool.ntp.org
+```
