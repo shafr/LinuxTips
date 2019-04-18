@@ -1,6 +1,3 @@
-LdcplHkp0bB9Zp1YjTZDDXNyeYOJy1T7KrLFgMZlNMXJs0cNcSsNkqRavbiu
-
-
 ## Mount USB Drive
 ```
 # find where drive is mounted
