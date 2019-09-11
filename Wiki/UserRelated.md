@@ -8,6 +8,11 @@ sudo passwd testuser
 sudo adduser <username> sudo
 ```
 
+# Change username, home and group for user
+usermod -l <new> <old>
+usermod -d /home/<new> -m <old>
+groupmod -n <new> <old>
+
 ## Create new group and add user there
 ```bash
 sudo useradd -M -s /bin/nologin -g tomcat -d /opt/tomcat tomcat
