@@ -1,0 +1,245 @@
+---
+- hosts: all
+  vars:
+    hostname: newhost 
+    username: username
+    password: 'need to hash it here'
+    ssh_public_key: "key"
+    ps1: 'export PS1="\[\033[38;5;22m\]\A\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;1m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;178m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;62m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"'
+
+  become: yes  
+  tasks:
+  
+    - name: install basic packets
+      yum:
+        name: mc, htop, git
+        state: present
+
+    - name: Add new user
+      user:
+        name: "{{ username }}"
+        password: "{{ password }}"
+        shell: /bin/bash
+        append: yes
+        groups: "wheel"
+        create_home: yes
+
+    - name: install sshd
+      yum:
+        name: openssh-server
+        state: present
+
+    - name: add trusted ssh key
+      lineinfile:
+        create: yes
+        path: /home/{{ username }}/.ssh/authorized_keys
+        line: "{{ ssh_public_key }}"
+
+    - name: configure sshd - disable root login
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '.*PermitRootLogin.*'
+        line: PermitRootLogin no
+        
+    - name: configure sshd - disable password login        
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '.*PasswordAuthentication.*'
+        line: PasswordAuthentication no
+
+    - name: configure sshd - disable empty passwords        
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '.*PermitEmptyPasswords.*'
+        line: PermitEmptyPasswords no
+
+    - name: restart sshd service
+      systemd:
+        name: sshd
+        daemon_reload: yes
+        enabled: yes
+        state: restarted
+
+    - name: set new PS1
+      lineinfile:
+        path: /home/{{ username }}/.bashrc
+        line: "{{ ps1 }}"
+        
+        
+    - name: Change Hostname
+      hostname:
+        name: "{{ hostname }}"
+        
+    - name: Update and upgrade apt packages
+      apt:
+        upgrade: yes
+        update_cache: yes
+        cache_valid_time: 86400 #One day
+        
+    - name: Reboot a slow machine that might have lots of updates to apply
+      reboot:
+        reboot_timeout: 3600
+
+# ---
+- hosts: all
+  vars:
+    hostname: newhost 
+    username: username
+    password: 'need to hash it here'
+    ssh_public_key: "key"
+    ps1: 'export PS1="\[\033[38;5;22m\]\A\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;1m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;178m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;62m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"'
+
+  become: yes  
+  tasks:
+  
+    - name: install basic packets
+      yum:
+        name: mc, htop, git
+        state: present
+
+    - name: Add new user
+      user:
+        name: "{{ username }}"
+        password: "{{ password }}"
+        shell: /bin/bash
+        append: yes
+        groups: "wheel"
+        create_home: yes
+
+    - name: install sshd
+      yum:
+        name: openssh-server
+        state: present
+
+    - name: add trusted ssh key
+      lineinfile:
+        create: yes
+        path: /home/{{ username }}/.ssh/authorized_keys
+        line: "{{ ssh_public_key }}"
+
+    - name: configure sshd - disable root login
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '.*PermitRootLogin.*'
+        line: PermitRootLogin no
+        
+    - name: configure sshd - disable password login        
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '.*PasswordAuthentication.*'
+        line: PasswordAuthentication no
+
+    - name: configure sshd - disable empty passwords        
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '.*PermitEmptyPasswords.*'
+        line: PermitEmptyPasswords no
+
+    - name: restart sshd service
+      systemd:
+        name: sshd
+        daemon_reload: yes
+        enabled: yes
+        state: restarted
+
+    - name: set new PS1
+      lineinfile:
+        path: /home/{{ username }}/.bashrc
+        line: "{{ ps1 }}"
+        
+        
+    - name: Change Hostname
+      hostname:
+        name: "{{ hostname }}"
+        
+    - name: Update and upgrade apt packages
+      apt:
+        upgrade: yes
+        update_cache: yes
+        cache_valid_time: 86400 #One day
+        
+    - name: Reboot a slow machine that might have lots of updates to apply
+      reboot:
+        reboot_timeout: 3600
+
+# ---
+- hosts: all
+  vars:
+    hostname: newhost 
+    username: username
+    password: 'need to hash it here'
+    ssh_public_key: "key"
+    ps1: 'export PS1="\[\033[38;5;22m\]\A\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;1m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;178m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;62m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"'
+
+  become: yes  
+  tasks:
+  
+    - name: install basic packets
+      yum:
+        name: mc, htop, git
+        state: present
+
+    - name: Add new user
+      user:
+        name: "{{ username }}"
+        password: "{{ password }}"
+        shell: /bin/bash
+        append: yes
+        groups: "wheel"
+        create_home: yes
+
+    - name: install sshd
+      yum:
+        name: openssh-server
+        state: present
+
+    - name: add trusted ssh key
+      lineinfile:
+        create: yes
+        path: /home/{{ username }}/.ssh/authorized_keys
+        line: "{{ ssh_public_key }}"
+
+    - name: configure sshd - disable root login
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '.*PermitRootLogin.*'
+        line: PermitRootLogin no
+        
+    - name: configure sshd - disable password login        
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '.*PasswordAuthentication.*'
+        line: PasswordAuthentication no
+
+    - name: configure sshd - disable empty passwords        
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '.*PermitEmptyPasswords.*'
+        line: PermitEmptyPasswords no
+
+    - name: restart sshd service
+      systemd:
+        name: sshd
+        daemon_reload: yes
+        enabled: yes
+        state: restarted
+
+    - name: set new PS1
+      lineinfile:
+        path: /home/{{ username }}/.bashrc
+        line: "{{ ps1 }}"
+        
+        
+    - name: Change Hostname
+      hostname:
+        name: "{{ hostname }}"
+        
+    - name: Update and upgrade apt packages
+      apt:
+        upgrade: yes
+        update_cache: yes
+        cache_valid_time: 86400 #One day
+        
+    - name: Reboot a slow machine that might have lots of updates to apply
+      reboot:
+        reboot_timeout: 3600
