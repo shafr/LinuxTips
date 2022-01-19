@@ -2,7 +2,14 @@
 ```
 ffmpeg -i input.mkv -r 0.25 output_%04d.png
 ```
-
+# Convert images to grayscale:
+```
+for IN in * ; do                                                                                   
+echo ${IN}        
+        convert ${IN}  -charcoal 3 ${IN}_cha3.png
+        convert ${IN} -edge 1 -negate -normalize -colorspace Gray -blur 0x.5 -contrast-stretch 0x50% ${IN}_gray.png
+done
+```
 
 # Creating comix from PNG files (using imagemagick):
 ```
