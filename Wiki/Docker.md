@@ -1,3 +1,6 @@
+### Completelly clean logs
+docker-compose up --force-recreate
+
 ### Docker start Stopped container:
 docker start -ia <container name>
 
