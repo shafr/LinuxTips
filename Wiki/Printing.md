@@ -12,3 +12,8 @@ psnup -b3mm  -m-5mm -s 0.70 -p a4 -2 source_book.ps source_booklet.ps
 ps2pdf source_booklet.ps
 rm source*.ps
 ```
+
+Convert image to pdf:
+```
+img2pdf *.jpg -o out.pdf
+```
