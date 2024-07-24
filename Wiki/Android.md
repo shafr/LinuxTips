@@ -1,8 +1,9 @@
 # Disable Bloatware from Android:
 ```
-adb shell pm list packages -d
-adb shell pm disable-user --user 0 <package>
-adb shell pm enable <package>
+adb shell 
+pm list packages -d
+pm disable-user --user 0 <package>
+pm enable <package>
 ```
 
 
